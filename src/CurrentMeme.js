@@ -25,10 +25,14 @@ function CurrentMeme(props) {
         //font family
     }
     return (
-    <div style={memeStyle}>
-        {/* text positioning doesn't always go to top and bottom only */}
-        <h1 style={topTextStyle}> {props.meme.topText} </h1>
-        <h1 style={bottomTextStyle}> {props.meme.bottomText} </h1>
+    <div>
+        <div style={memeStyle}>
+            {/* text positioning doesn't always go to top and bottom only */}
+            <h1 style={topTextStyle}> {props.meme.topText} </h1>
+            <h1 style={bottomTextStyle}> {props.meme.bottomText} </h1>
+        </div>
+        {/* <button onClick={props.meme.deleteMeme}>Delete</button>
+        <button onClick={props.meme.editMeme}>Edit</button> */}
     </div>
     )
 }
