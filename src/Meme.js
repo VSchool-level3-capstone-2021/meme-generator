@@ -59,6 +59,15 @@ class Meme extends React.Component {
         }))
         console.log(this.state)
     }
+    editMeme = (event) => {
+        event.preventDefault()
+        console.log("editMeme")
+    }
+    deleteMeme = (event) => {
+        event.preventDefault()
+        console.log("deleteMeme")
+        
+    }
     render() {
         console.log("render")
         const memes = this.state.savedMemes.map( meme => <CurrentMeme meme={meme} />)
