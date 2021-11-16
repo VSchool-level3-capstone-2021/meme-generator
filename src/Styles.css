@@ -16,7 +16,6 @@ input{
     height: 1.8em;
 }
 form{
-    position: relative;
     display: inline-flex;
     padding-left: 50px;
     height: 141px;
@@ -35,6 +34,10 @@ form{
 
 }
 .memeCreator{
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    padding-bottom: 50px;
+}
+img{
+    height: 500px;
+    width: 500px;
 }

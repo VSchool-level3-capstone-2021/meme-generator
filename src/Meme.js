@@ -95,10 +95,10 @@ class Meme extends React.Component {
                         />
                         <button  onClick={this.saveMeme}>Save</button>
                     </form>
-                </div>
                     <div className="savedMemes">
                         {memes}
                     </div>
+                </div>
             </>
         )
     }

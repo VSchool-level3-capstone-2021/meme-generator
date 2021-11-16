@@ -9,7 +9,6 @@ function App() {
         <div>
             <Header />
             <Meme />
-            {/* <MemeList /> */}
         </div>
     )
 }
