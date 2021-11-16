@@ -72,30 +72,34 @@ class Meme extends React.Component {
         console.log("render")
         const memes = this.state.savedMemes.map( meme => <CurrentMeme meme={meme} />)
         return (
-            <div>
-                <button onClick={this.refresh}>Refresh</button>
-                <CurrentMeme key={this.state.currentMeme} meme={this.state.currentMeme} />
-                <form name="memeTextForm">
-                    <input 
-                    name="topText"
-                    id="topText"
-                    type="text"
-                    placeholder="Top Text"
-                    onChange={this.handleChange}
-                    value={this.state.currentMeme.topText}
-                    />
-                    <input 
-                    name="bottomText"
-                    id="bottomText"
-                    type="text"
-                    placeholder="Bottom Text"
-                    onChange={this.handleChange}
-                    value={this.state.currentMeme.bottomText}
-                    />
-                    <button onClick={this.saveMeme}>Save</button>
-                </form>
-                    {memes}
-            </div>
+            <>
+                <button id="refreshButton" onClick={this.refresh}>Refresh</button>
+                <div className="memeCreator">
+                    <CurrentMeme key={this.state.currentMeme} meme={this.state.currentMeme} />
+                    <form name="memeTextForm">
+                        <input 
+                        name="topText"
+                        id="topText"
+                        type="text"
+                        placeholder="Top Text"
+                        onChange={this.handleChange}
+                        value={this.state.currentMeme.topText}
+                        />
+                        <input 
+                        name="bottomText"
+                        id="bottomText"
+                        type="text"
+                        placeholder="Bottom Text"
+                        onChange={this.handleChange}
+                        value={this.state.currentMeme.bottomText}
+                        />
+                        <button  onClick={this.saveMeme}>Save</button>
+                    </form>
+                </div>
+                    <div className="savedMemes">
+                        {memes}
+                    </div>
+            </>
         )
     }
 }

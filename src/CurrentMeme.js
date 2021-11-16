@@ -5,10 +5,12 @@ function CurrentMeme(props) {
         "background-image": `url(${props.meme.url})`,
         "background-repeat": "no-repeat",
         "background-size": "contain",
+        "background-color": "transparent",
         height: 400,
         width: 400,
-        padding: 0,
-        margin: 0
+        padding: 10,
+        margin: 0,
+        float: "left",
         //some memes need to be a different size, but default sizes aren't really working because some memes are HUGE....maybe "if size is > x then reduce size?"
     }
     const topTextStyle = {
@@ -21,7 +23,8 @@ function CurrentMeme(props) {
     const bottomTextStyle = {
         padding: 0,
         margin: 0,
-        color: "hotpink" //does white work on all memes?
+        color: "hotpink",
+         //does white work on all memes?
         //font family
     }
     return (
