@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from './Header'
 import Meme from './Meme'
-// import MemeList from './MemeList'
+import './Styles.css'
+
 
 function App() {
     return (
