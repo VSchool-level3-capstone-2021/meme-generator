@@ -9,7 +9,9 @@ class Meme extends React.Component {
             currentMeme: {
                 url: "",
                 topText: "",
-                bottomText: ""
+                bottomText: "",
+                isEditing: false,
+                isDeleting: false
             },
             memeArray: [],
             savedMemes: []
@@ -43,7 +45,9 @@ class Meme extends React.Component {
         this.setState ( prevState => {
             return {
             savedMemes: [...prevState.savedMemes, prevState.currentMeme],
-            currentMeme: this.state.memeArray[Math.floor(Math.random()*this.state.memeArray.length)]
+            currentMeme: this.state.memeArray[Math.floor(Math.random()*this.state.memeArray.length)],
+            isEditing: true,
+            isDeleting: true
             }
         }, () => console.log(this.state))
         document.getElementById("topText").value = ""
@@ -59,18 +63,41 @@ class Meme extends React.Component {
         }))
         console.log(this.state)
     }
-    editMeme = (event) => {
-        event.preventDefault()
-        console.log("editMeme")
+    editMeme = (e) => {
+        // e.preventDefault()
+        // const topInput = document.createElement("input")
+        // const bottomInput = document.createElement("input")
+
+        // this.setState( prevState => ({
+        //     savedMemes: {prevState.savedMemes.isEditing: true}
+        // })
+
+        // if (this.state.savedMemes.isEditing === true) {
+        //     document.getElementById("edits").appendChild(topInput)
+        //     document.getElementById("edits").appendChild(bottomInput)
+        // }
+        // 
     }
-    deleteMeme = (event) => {
-        event.preventDefault()
-        console.log("deleteMeme")
+
+    deleteMeme = (e) => {
+        let { id } = e.target
+        id = Number(id)
+
+        let deleteMemeIndex = this.state.savedMemes.findIndex(function(meme) {
+            return meme.id === id
+        })
+
+        let savedMemesAfterDelete = this.state.savedMemes
         
+        savedMemesAfterDelete.splice(deleteMemeIndex, 1)
+        this.setState({
+            savedMemes: savedMemesAfterDelete
+        })
     }
     render() {
         console.log("render")
-        const memes = this.state.savedMemes.map( meme => <CurrentMeme meme={meme} />)
+        
+        const memes = this.state.savedMemes.map( meme => <CurrentMeme key={meme.id} meme={meme} created={"created"} deleteMeme={this.deleteMeme} editMeme={this.editMeme}/>)
         return (
             <>
                 <button id="refreshButton" onClick={this.refresh}>Refresh</button>
@@ -95,8 +122,8 @@ class Meme extends React.Component {
                         />
                         <button  onClick={this.saveMeme}>Save</button>
                     </form>
-                    <div className="savedMemes">
-                        {memes}
+                   <div className="savedMemes">
+                          {memes}
                     </div>
                 </div>
             </>
