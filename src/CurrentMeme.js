@@ -1,4 +1,5 @@
 import React from 'react'
+import Meme from './Meme'
 
 function CurrentMeme(props) {
     const memeStyle ={
@@ -25,14 +26,14 @@ function CurrentMeme(props) {
          //does white work on all memes?
         //font family
     }
+    
     return (
     
-        <div style={memeStyle}>
+        <div className="currentMeme" style={memeStyle}>
             <h1 style={topTextStyle}> {props.meme.topText} </h1>
             <img src={props.meme.url}/>
             <h1 style={bottomTextStyle}> {props.meme.bottomText} </h1>
-            {/* <button onClick={props.meme.deleteMeme}>Delete</button>
-            <button onClick={props.meme.editMeme}>Edit</button> */}
+            {props.created === "created" && <div id="edits"><button onClick={props.editMeme}>edit</button> <button onClick={props.deleteMeme}>delete</button></div>}
         </div>
     
     )
