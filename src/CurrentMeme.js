@@ -33,7 +33,10 @@ function CurrentMeme(props) {
             <h1 style={topTextStyle}> {props.meme.topText} </h1>
             <img src={props.meme.url}/>
             <h1 style={bottomTextStyle}> {props.meme.bottomText} </h1>
-            {props.created === "created" && <div id="edits"><button onClick={props.editMeme}>edit</button> <button onClick={props.deleteMeme}>delete</button></div>}
+            {props.created === "created" && <div id="edits">
+                <button onClick={() => {props.editMeme(props.id)}}>edit</button> 
+                <button onClick={() => {props.deleteMeme(props.id)}}>delete</button>
+            </div>}
         </div>
     
     )
