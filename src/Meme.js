@@ -125,7 +125,7 @@ class Meme extends React.Component {
             return index === id
         })
 
-        let savedMemesAfterDelete = this.state.savedMemes
+        let savedMemesAfterDelete = [...this.state.savedMemes]
 
         savedMemesAfterDelete.splice(deleteMemeIndex, 1)
         this.setState({
